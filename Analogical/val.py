@@ -1,10 +1,10 @@
 from ultralytics import SPARYOLO
 import os
 os.environ['CUDA_LAUNCH_BLOCKING'] = '1'
-model = SPARYOLO('/home/lihua_zhou/nianxin/aaai/runs/detect/train/weights/best.pt')  # 加载自定义的训练模型
+model = SPARYOLO('C:/Users/19595/Desktop/Analogical-Reasoning-main/runs/detect/train/weights/best.pt')  # 加载自定义的训练模型
 if __name__ == '__main__':
     # 对模型进行验证
-    metrics = model.val(data='/home/lihua_zhou/nianxin/dataset/visdrone/VisDrone.yaml',device=[0],batch=2)  # 调用val方法进行模型验证，不需要传入参数，数据集和设置已被模型记住
+    metrics = model.val(data='C:/Users/19595/Desktop/Analogical-Reasoning-main/VisDrone_Dataset_COCO_Format/VisDrone.yaml',device=[0],batch=2)  # 调用val方法进行模型验证，不需要传入参数，数据集和设置已被模型记住
     # 输出不同的性能指标
     print("AP (mAP@0.5:0.95):", metrics.box.map)    # 输出平均精度均值（AP，Average Precision）在IoU阈值从0.5到0.95的范围内的结果
     print("AP@0.5 (mAP@0.5):", metrics.box.map50)  # 输出在IoU=0.5时的平均精度（AP50）
